@@ -37,7 +37,7 @@ class DishDetail extends Component{
          return(
              <div>
              <p>{com.comment}</p>
-             <b>{com.author}</b><b>{"   "}</b>
+             <b>{com.author}</b><b>{"      "}</b>
              <b>{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'})
              .format(new Date(Date.parse(com.date)))}</b>
              </div>
@@ -52,13 +52,12 @@ class DishDetail extends Component{
       
 
         return(
-          <React.Fragment>
+          <div className="row">
            {this.renderDish(this.props.selectedDish)}
            <div className="col-12 col-md-5 m-1 mt-5">
            {this.props.selectedDish == null ? null:comments}
            </div>
-           
-          </React.Fragment>
+           </div>
           );
     } 
 }
