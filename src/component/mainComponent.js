@@ -2,8 +2,11 @@ import React,{Component} from "react";
 import {Navbar,NavbarBrand} from 'reactstrap';
 import Menu from './menuComponent';
 import DishDetail from "./dishDetails";
+import Header from "./headerComponent";
+import Footer from "./footerComponent";
 import {DISHES} from'../dataCollection/dishes';
 import {COMMENTS} from '../dataCollection/comments';
+
 
 
 
@@ -26,18 +29,12 @@ import {COMMENTS} from '../dataCollection/comments';
    render(){
     return (
       <div className="App">
-        <Navbar dark color="success">
-          <div className="container">
-            <NavbarBrand><b style={{fontSize:'30px'}}>Zee Restaurant</b></NavbarBrand>
-          </div>
-        </Navbar>
-
+        <Header/>
         <Menu dishes={this.state.dishes} comments={this.state.comments} onClick={(dish)=>this.onDishSelect(dish)}/>
-
         <div className="container">
           <DishDetail selectedDish={this.state.selectedDish} comments={this.state.comments}/>
         </div>
-        
+        <Footer/>
       </div>
   );
   

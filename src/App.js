@@ -5,14 +5,14 @@ import Main from './component/mainComponent';
 
 
 
- class App extends Component{
+ 
    
    
-   render(){
+   const App=()=>{
     return (
       <Main/>
      );
   
      }
-   }
+   
 export default App;
