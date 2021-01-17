@@ -1,8 +1,7 @@
 import React,{Component} from "react";
 import './App.css';
 import Main from './component/mainComponent';
-
-
+import {BrowserRouter} from "react-router-dom";
 
 
  
@@ -10,7 +9,10 @@ import Main from './component/mainComponent';
    
    const App=()=>{
     return (
-      <Main/>
+      <BrowserRouter>
+         <Main/>
+      </BrowserRouter>
+      
      );
   
      }

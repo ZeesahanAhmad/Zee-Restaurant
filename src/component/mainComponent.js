@@ -4,6 +4,9 @@ import Menu from './menuComponent';
 import DishDetail from "./dishDetails";
 import Header from "./headerComponent";
 import Footer from "./footerComponent";
+import Jumbotron from "./jumbotronComponent";
+import Home from "./HomeComponent";
+import {Switch,Route,Redirect} from "react-router-dom";
 import {DISHES} from'../dataCollection/dishes';
 import {COMMENTS} from '../dataCollection/comments';
 
@@ -19,22 +22,41 @@ import {COMMENTS} from '../dataCollection/comments';
        selectedDish:null
        }
    }
+   
+  //<DishDetail selectedDish={this.state.selectedDish} comments={this.state.comments}/>
 
    onDishSelect(dish){
     this.setState({
       selectedDish:dish
     });
+
+    
     
   }
    render(){
+    const LandingPage=()=>{
+      return(
+        <Home/>
+      )
+    }
+    const MenuPage=()=>{
+      return(
+        <Menu dishes={this.state.dishes} comments={this.state.comments} onClick={(dish)=>this.onDishSelect(dish)}/>
+      )
+    }
+    
+
+
     return (
       <div className="App">
         <Header/>
-        <Menu dishes={this.state.dishes} comments={this.state.comments} onClick={(dish)=>this.onDishSelect(dish)}/>
-        <div className="container">
-          <DishDetail selectedDish={this.state.selectedDish} comments={this.state.comments}/>
-        </div>
-        <Footer/>
+        <Jumbotron/>
+         <Switch>
+            <Route path="/home" component={LandingPage} />
+            <Route exact path="/menu" component={MenuPage}/>
+            <Redirect path="/home" />
+         </Switch>
+         <Footer/>
       </div>
   );
   

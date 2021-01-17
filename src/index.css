@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* css for jumbotron */
+.jumbo-custom-color {
+  background-color: #D1C4E9;
+}
+.btn-social-icon{
+  margin-left: 6px;
+}

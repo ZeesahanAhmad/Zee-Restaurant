@@ -1,40 +1,36 @@
 import React,{Component} from 'react';
 import {Card,CardBody,CardTitle,CardImg,CardImgOverlay, CardText} from "reactstrap";
 
-class DishDetail extends Component{
-    constructor(props){
-        super();
+const RenderDish=({dish})=>{
+   
+    if(dish!=null){
+      return(
+        <div className= "col-12 col-md-5 m-1 mt-5">
+        <Card>
+          <CardImg  width="100%" src={dish.image} alt={dish.name}></CardImg>
+          <CardBody>
+            <CardTitle style={{fontSize:"25px",color:"red"}}><b>{dish.name}</b></CardTitle>
+            <CardText>{dish.description}</CardText>
+          </CardBody>
+       </Card>
+       </div>
+      
+      )
     }
-    
-    // function for displaying details of dish
-    renderDish(dish){
-        if(dish!=null){
-            return(
-              <div className= "col-12 col-md-5 m-1 mt-5">
-              <Card>
-                <CardImg  width="100%" src={dish.image} alt={dish.name}></CardImg>
-                <CardBody>
-                  <CardTitle style={{fontSize:"25px",color:"red"}}><b>{dish.name}</b></CardTitle>
-                  <CardText>{dish.description}</CardText>
-                </CardBody>
-             </Card>
-             </div>
-            
-            )
-        }
-        else{
+   else{
+     return(
+      <div></div>
+     )
+  }
+   
+}
+
+
+const DishDetail=(props)=>{
+
+         const comments=props.comments.map((com)=>{
+          if(props.selectedDish!=null && com.dishId===props.selectedDish.id ){
           return(
-            <div></div>
-          )
-        }
-      }
-
-
-    render(){
-       
-        const comments=this.props.comments.map((com)=>{
-         if(this.props.selectedDish!=null && com.dishId===this.props.selectedDish.id ){
-         return(
              <div>
              <p>{com.comment}</p>
              <b>{com.author}</b><b>{"      "}</b>
@@ -43,23 +39,26 @@ class DishDetail extends Component{
              </div>
              
              
-         );
-        }
-        else{
-          return null;
-        }
+           );
+         }
+         else{
+           return null;
+         }
         });
       
 
         return(
-          <div className="row">
-           {this.renderDish(this.props.selectedDish)}
-           <div className="col-12 col-md-5 m-1 mt-5">
-           {this.props.selectedDish == null ? null:comments}
-           </div>
-           </div>
+          <div className="container">
+            <div className="row">
+              <RenderDish dish={props.selectedDish}/>
+              <div className="col-12 col-md-5 m-1 mt-5">
+                {props.selectedDish == null ? null:comments}
+              </div>
+            </div>
+          </div>
+         
           );
     } 
-}
+
 
 export default DishDetail;
