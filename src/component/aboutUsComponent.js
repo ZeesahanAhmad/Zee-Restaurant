@@ -6,7 +6,16 @@ const AboutUS=(props)=> {
 
     const leaders = props.leaders.map((leader) => {
         return (
-            <p className="font-custom"><b>Leader {leader.name}</b></p>
+         <Media>
+            <Media left>
+              <Media object className="leader-media-img" src={leader.image} alt={leader.name} />
+            </Media>
+             <Media body className="font-custom ml-4">
+             <Media heading><h3><b>{leader.name}</b></h3></Media>
+             <h4>{leader.designation}</h4>
+             <p>{leader.description}</p>
+            </Media>
+        </Media>
         );
     });
 
@@ -56,10 +65,10 @@ const AboutUS=(props)=> {
             </div>
             <div className="row row-content">
                 <div className="col-12">
-                    <h2 className="font-custom"><b>Corporate Leadership</b></h2>
+                    <h1 className="font-custom"><b>Corporate Leadership</b></h1>
                 </div>
                 <div className="col-12">
-                    <Media list>
+                    <Media list className="mt-4">
                         {leaders}
                     </Media>
                 </div>

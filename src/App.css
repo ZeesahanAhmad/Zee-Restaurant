@@ -39,3 +39,7 @@ address{
     font-size: 20px;
     text-decoration: none;
 }
+.leader-media-img{
+    border:1px solid black;
+    border-radius: 100%;
+}
