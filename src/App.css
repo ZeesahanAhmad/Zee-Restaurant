@@ -26,3 +26,16 @@ address{
     margin:0px;
     color:#0f0f0f;
 }
+.font-custom{
+    font-family: 'Alfa Slab One';  
+}
+.address-custom{
+    font-size: 15px;
+}
+.footer-header{
+    font-size: 15px;
+}
+.footer-link-custom{
+    font-size: 20px;
+    text-decoration: none;
+}

@@ -1,21 +1,23 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 const Footer=(props)=>{
     return(
     <div className="footer">
     <div className="container">
     <div className="row justify-content-center">             
         <div className="col-4 offset-1 col-sm-2">
-            <h5>Links</h5>
-            <ul className="list-unstyled">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Menu</a></li>
-                <li><a href="">Contact</a></li>
+            <h3 className="font-custom"><b>Links</b></h3>
+            <ul className="list-unstyled font-custom">
+                <li><Link className="footer-link-custom" to="/home">Home</Link></li>
+                <li><Link className="footer-link-custom" to="/menu">Menu</Link></li>
+                <li><Link className="footer-link-custom" to="/contactus">Contact</Link></li>
+                <li><Link className="footer-link-custom" to="/aboutus">About</Link></li>
+                
             </ul>
         </div>
         <div className="col-7 col-sm-5">
-            <h5>Our Address</h5>
-            <address>
+            <h3 className="font-custom"><b>Our Address</b></h3>
+            <address className="font-custom address-custom">
               Pincode: 823001<br/>
               Katari Hill Road<br/>
               New Karimganj<br/>
@@ -27,7 +29,7 @@ const Footer=(props)=>{
         </div>
         <div className="col-12 col-sm-4 align-self-center">
             <div className="text-center">
-                <h5>Subscribe Us To</h5>
+                <h3 className="font-custom"><b>Subscribe Us To</b></h3>
                 <a className="btn btn-social-icon btn-google" href="#"><i className="fa fa-google-plus"></i></a>
                 <a className="btn btn-social-icon btn-facebook" href="#"><i className="fa fa-facebook"></i></a>
                 <a className="btn btn-social-icon btn-linkedin" href="#"><i className="fa fa-linkedin"></i></a>
@@ -38,7 +40,7 @@ const Footer=(props)=>{
         </div>
     </div>
     <div className="row justify-content-center">             
-        <div className="col-auto">
+        <div className="col-auto font-custom">
             <p><b>© Copyright 2021 Zee Restaurant</b></p>
         </div>
     </div>

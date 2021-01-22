@@ -5,8 +5,10 @@ import DishDetail from "./dishDetails";
 import Header from "./headerComponent";
 import Footer from "./footerComponent";
 import Jumbotron from "./jumbotronComponent";
-import Home from "./HomeComponent";
+import Home from "./homeComponent";
 import {Switch,Route,Redirect} from "react-router-dom";
+import ContactUs from "./contactUsComponent";
+import AboutUs from "./aboutUsComponent";
 import {DISHES} from'../dataCollection/dishes';
 import {COMMENTS} from '../dataCollection/comments';
 
@@ -44,6 +46,16 @@ import {COMMENTS} from '../dataCollection/comments';
         <Menu dishes={this.state.dishes} comments={this.state.comments} onClick={(dish)=>this.onDishSelect(dish)}/>
       )
     }
+    const ContactUsPage=()=>{
+      return(
+        <ContactUs/>
+      )
+    }
+    const AboutUsPage=()=>{
+      return(
+        <AboutUsUs/>
+      )
+    }
     
 
 
@@ -54,7 +66,9 @@ import {COMMENTS} from '../dataCollection/comments';
          <Switch>
             <Route path="/home" component={LandingPage} />
             <Route exact path="/menu" component={MenuPage}/>
-            <Redirect path="/home" />
+            <Route exact path="/contactus" component={ContactUsPage}/>
+            <Route exact path="/aboutus" component={AboutUsPage}/>
+            <Redirect to="/home" />
          </Switch>
          <Footer/>
       </div>
