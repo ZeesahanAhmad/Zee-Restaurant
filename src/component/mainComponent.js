@@ -11,6 +11,9 @@ import ContactUs from "./contactUsComponent";
 import AboutUs from "./aboutUsComponent";
 import {DISHES} from'../dataCollection/dishes';
 import {COMMENTS} from '../dataCollection/comments';
+import {LEADERS} from "../dataCollection/leaders";
+import {PROMOTIONS} from "../dataCollection/promotions";
+
 
 
 
@@ -21,6 +24,8 @@ import {COMMENTS} from '../dataCollection/comments';
      this.state={
        dishes:DISHES,
        comments:COMMENTS,
+       leaders:LEADERS,
+       promotions:PROMOTIONS,
        selectedDish:null
        }
    }
@@ -53,7 +58,7 @@ import {COMMENTS} from '../dataCollection/comments';
     }
     const AboutUsPage=()=>{
       return(
-        <AboutUsUs/>
+        <AboutUs leaders={this.state.leaders}/>
       )
     }
     
