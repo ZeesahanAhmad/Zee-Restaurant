@@ -29,7 +29,7 @@ const RenderDish=({dish})=>{
 const DishDetail=(props)=>{
 
          const comments=props.comments.map((com)=>{
-          if(props.selectedDish!=null && com.dishId===props.selectedDish.id ){
+          if(props.comments!=null){
           return(
              <div>
              <p>{com.comment}</p>
@@ -50,9 +50,9 @@ const DishDetail=(props)=>{
         return(
           <div className="container">
             <div className="row">
-              <RenderDish dish={props.selectedDish}/>
+              <RenderDish dish={props.dish}/>
               <div className="col-12 col-md-5 m-1 mt-5">
-                {props.selectedDish == null ? null:comments}
+                {comments}
               </div>
             </div>
           </div>

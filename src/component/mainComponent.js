@@ -25,22 +25,11 @@ import {PROMOTIONS} from "../dataCollection/promotions";
        dishes:DISHES,
        comments:COMMENTS,
        leaders:LEADERS,
-       promotions:PROMOTIONS,
-       selectedDish:null
+       promotions:PROMOTIONS
        }
    }
    
-  //<DishDetail selectedDish={this.state.selectedDish} comments={this.state.comments}/>
-
-   onDishSelect(dish){
-    this.setState({
-      selectedDish:dish
-    });
-
-    
-    
-  }
-   render(){
+  render(){
     const LandingPage=()=>{
       return(
         <Home/>
@@ -48,7 +37,7 @@ import {PROMOTIONS} from "../dataCollection/promotions";
     }
     const MenuPage=()=>{
       return(
-        <Menu dishes={this.state.dishes} comments={this.state.comments} onClick={(dish)=>this.onDishSelect(dish)}/>
+        <Menu dishes={this.state.dishes} comments={this.state.comments}/>
       )
     }
     const ContactUsPage=()=>{
@@ -61,6 +50,12 @@ import {PROMOTIONS} from "../dataCollection/promotions";
         <AboutUs leaders={this.state.leaders}/>
       )
     }
+    const DishDetailPage=({match})=>{
+      return(
+        <DishDetail dish={this.state.dishes.filter((dish)=>dish.id==parseInt(match.params.dishId,10))[0]}
+         comments={this.state.comments.filter((comment)=>comment.dishId==parseInt(match.params.dishId,10))} />
+      )
+    }
     
 
 
@@ -71,6 +66,7 @@ import {PROMOTIONS} from "../dataCollection/promotions";
          <Switch>
             <Route path="/home" component={LandingPage} />
             <Route exact path="/menu" component={MenuPage}/>
+            <Route path="/menu/:dishId" component={DishDetailPage}/>
             <Route exact path="/contactus" component={ContactUsPage}/>
             <Route exact path="/aboutus" component={AboutUsPage}/>
             <Redirect to="/home" />
