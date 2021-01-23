@@ -1,8 +1,12 @@
-/* css for navbar */
 .navbar-color{
-    background-color:#183a37;
+    background-color:#000000;
 }
-/* css for footer */
+.menu-custom{
+    color:#DE1E24 ;
+}
+.menu-custom:hover{
+    color:white;
+}
 .row-header{
     margin:0px auto;
     padding:0px auto;
@@ -16,7 +20,7 @@
 }
 
 .footer{
-    background-color: #D1C4E9;
+    background-color: #000000;
     margin:0px auto;
     padding: 20px 0px 20px 0px;
     margin-top: 20px;
@@ -31,15 +35,35 @@ address{
 }
 .address-custom{
     font-size: 15px;
+    color: #DE1E24;
 }
 .footer-header{
-    font-size: 15px;
+    color:whitesmoke;
 }
 .footer-link-custom{
     font-size: 20px;
+    color:blue;
     text-decoration: none;
+}
+.footer-link-custom:hover{
+    color:white;
 }
 .leader-media-img{
     border:1px solid black;
     border-radius: 100%;
 }
+.comment-header-custom{
+    color:#DE1E24;
+    font-size: 28px;
+    background-color:#000000 ;
+    padding:8px 6px 8px 8px;
+    text-align: center;
+}
+.copy-right-custom{
+   color: #DE1E24
+}
+.comment-custom{
+    border:1px solid black;
+    margin-top: 4px;
+}
+

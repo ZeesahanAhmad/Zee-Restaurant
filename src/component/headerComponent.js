@@ -24,24 +24,24 @@ class Header extends Component {
     return(
       <Navbar dark className="navbar-color" expand="md">
         <div className="container">
-            <NavbarToggler onClick={this.toggleNav} style={{color:"white"}} />
-            <NavbarBrand className=" font-custom mr-4" ><b style={{fontSize:'30px'}}>Zee Restaurant</b></NavbarBrand>
+            <NavbarToggler onClick={this.toggleNav} />
+            <NavbarBrand className=" font-custom mr-4" ><b style={{color:"#DE1E24",fontSize:"30px"}}>Zee Restaurant</b></NavbarBrand>
             <Collapse isOpen={this.state.isNavOpen} navbar >
             <Nav navbar>
               <NavItem >
-                <NavLink className="nav-link mr-4" style={{color:"white"}} to="/home"><b className="fa fa-home fa-lg">Home</b></NavLink>
+                <NavLink className="nav-link mr-4"  to="/home"><b className="fa fa-home fa-lg menu-custom">Home</b></NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink className="nav-link mr-4" style={{color:"white"}} to="/aboutus"><b className="fa fa-info fa-lg">About Us</b></NavLink>
+                <NavLink className="nav-link mr-4"  to="/aboutus"><b className="fa fa-info fa-lg menu-custom">About Us</b></NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink className="nav-link mr-4" style={{color:"white"}} to="/menu"><b className="fa fa-list fa-lg">Menu</b></NavLink>
+                <NavLink className="nav-link mr-4"  to="/menu"><b className="fa fa-list fa-lg menu-custom">Menu</b></NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink className="nav-link mr-4" style={{color:"white"}} to="contactus"><b className="fa fa-address-card fa-lg">Contact Us</b></NavLink>
+                <NavLink className="nav-link mr-4"  to="contactus"><b className="fa fa-address-card fa-lg menu-custom">Contact Us</b></NavLink>
               </NavItem>
           </Nav>
           </Collapse>
