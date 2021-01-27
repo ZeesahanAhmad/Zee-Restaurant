@@ -6,27 +6,26 @@ import Header from "./headerComponent";
 import Footer from "./footerComponent";
 import Jumbotron from "./jumbotronComponent";
 import Home from "./homeComponent";
-import {Switch,Route,Redirect} from "react-router-dom";
+import {Switch,Route,Redirect,withRouter} from "react-router-dom";
 import ContactUs from "./contactUsComponent";
 import AboutUs from "./aboutUsComponent";
-import {DISHES} from'../dataCollection/dishes';
-import {COMMENTS} from '../dataCollection/comments';
-import {LEADERS} from "../dataCollection/leaders";
-import {PROMOTIONS} from "../dataCollection/promotions";
+import {connect} from "react-redux";
 
 
+ const mapStateToProps=(state)=>{
+ return{
+   dishes:state.dishes,
+   comments:state.comments,
+   leaders:state.leaders,
+   promotions:state.promotions
+ }
+ }
 
 
 
  class Main extends Component{
-   constructor(){
-     super();
-     this.state={
-       dishes:DISHES,
-       comments:COMMENTS,
-       leaders:LEADERS,
-       promotions:PROMOTIONS
-       }
+   constructor(props){
+     super(props);
    }
    
   render(){
@@ -37,7 +36,7 @@ import {PROMOTIONS} from "../dataCollection/promotions";
     }
     const MenuPage=()=>{
       return(
-        <Menu dishes={this.state.dishes} comments={this.state.comments}/>
+        <Menu dishes={this.props.dishes} comments={this.props.comments}/>
       )
     }
     const ContactUsPage=()=>{
@@ -47,13 +46,13 @@ import {PROMOTIONS} from "../dataCollection/promotions";
     }
     const AboutUsPage=()=>{
       return(
-        <AboutUs leaders={this.state.leaders}/>
+        <AboutUs leaders={this.props.leaders}/>
       )
     }
     const DishDetailPage=({match})=>{
       return(
-        <DishDetail dish={this.state.dishes.filter((dish)=>dish.id==parseInt(match.params.dishId,10))[0]}
-         comments={this.state.comments.filter((comment)=>comment.dishId==parseInt(match.params.dishId,10))} />
+        <DishDetail dish={this.props.dishes.filter((dish)=>dish.id==parseInt(match.params.dishId,10))[0]}
+         comments={this.props.comments.filter((comment)=>comment.dishId==parseInt(match.params.dishId,10))} />
       )
     }
     
@@ -79,4 +78,4 @@ import {PROMOTIONS} from "../dataCollection/promotions";
    }
   
 
- export default Main;
+ export default withRouter(connect(mapStateToProps)(Main));

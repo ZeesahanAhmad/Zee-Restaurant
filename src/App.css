@@ -38,11 +38,11 @@ address{
     color: #DE1E24;
 }
 .footer-header{
-    color:whitesmoke;
+    color:red;
 }
 .footer-link-custom{
     font-size: 20px;
-    color:blue;
+    color:#DE1E24;
     text-decoration: none;
 }
 .footer-link-custom:hover{
@@ -65,5 +65,9 @@ address{
 .comment-custom{
     border:1px solid black;
     margin-top: 4px;
+    color: whitesmoke;
+}
+.home-custome{
+    
 }
 

@@ -2,14 +2,15 @@ import React from "react";
 
 function ContactUs(props) {
     return(
+        <div className="contact-custom">
         <div className="container">
             <div className="row row-content">
                 <div className="col-12 offset-sm-1 font-custom">
-                <h2><b> Location Information</b></h2>
+                <h2><b style={{color:"#33d9b2"}}> Location Information</b></h2>
                 </div>
                 <div className="col-12 col-sm-4 offset-sm-1">
-                        <h3 className="font-custom"><b>Our Address</b></h3>
-                        <address className="font-custom address-custom">
+                        <h3 className="font-custom"><b style={{color:"#34ace0"}}>Our Address</b></h3>
+                        <address className="font-custom address-custom" style={{color:"whitesmoke"}}>
                          Pincode: 823001<br/>
                          Katari Hill Road<br/>
                          New Karimganj<br/>
@@ -27,6 +28,7 @@ function ContactUs(props) {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 }

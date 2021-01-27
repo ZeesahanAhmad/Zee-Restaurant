@@ -5,13 +5,13 @@ const RenderDish=({dish})=>{
    
     if(dish!=null){
       return(
-        <div className= "col-12 col-md-4 m-1 mt-5">
+        <div className= "col-12 col-md-4 m-1 mt-5 font-custom">
          <Card>
           <CardImg  width="100%" src={dish.image} alt={dish.name}></CardImg>
-          <CardBody>
+          <CardBody className="card-body-custom">
             <CardTitle style={{fontSize:"25px",color:"red"}}><b>{dish.name}</b></CardTitle>
-            <CardText>{dish.description}</CardText>
-          </CardBody>
+            <CardText>{dish.description}<br></br><b>{`Price: $${dish.price}`}</b></CardText>
+           </CardBody>
          </Card>
        </div>
       
@@ -25,21 +25,26 @@ const RenderDish=({dish})=>{
    
 }
 
+const RenderComment=({com})=>{
+  return(
+    <div className="font-custom comment-custom">
+    <h5>{com.comment}</h5>
+    <b>{com.author}</b><b>{"      "}</b>
+    <b>{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'})
+    .format(new Date(Date.parse(com.date)))}</b>
+    </div>
+    
+  )
+}
+
 
 const DishDetail=(props)=>{
 
          const comments=props.comments.map((com)=>{
           if(props.comments!=null){
           return(
-             <div className="font-custom comment-custom">
-             <h5>{com.comment}</h5>
-             <b>{com.author}</b><b>{"      "}</b>
-             <b>{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'})
-             .format(new Date(Date.parse(com.date)))}</b>
-             </div>
-             
-             
-           );
+            <RenderComment com={com}/>
+          );
          }
          else{
            return null;

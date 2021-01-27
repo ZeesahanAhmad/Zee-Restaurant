@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #30475e;
 }
 
 code {
@@ -13,7 +14,8 @@ code {
 }
 /* css for jumbotron */
 .jumbo-custom-color {
-  background-color: #D1C4E9;
+  background-color: #222831;
+  color:whitesmoke;
 }
 .btn-social-icon{
   margin-left: 6px;

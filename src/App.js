@@ -5,17 +5,18 @@ import './App.css';
 </style>
 import Main from './component/mainComponent';
 import {BrowserRouter} from "react-router-dom";
-
-
- 
+import{configureStore} from "./redux/store";
+import {Provider} from "react-redux";
    
-   
-   const App=()=>{
+  const store=configureStore();
+
+  const App=()=>{
     return (
+      <Provider store={store} >
       <BrowserRouter>
          <Main/>
       </BrowserRouter>
-      
+      </Provider> 
      );
   
      }
