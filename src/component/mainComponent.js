@@ -31,7 +31,7 @@ import {connect} from "react-redux";
   render(){
     const LandingPage=()=>{
       return(
-        <Home/>
+        <Home featuredDish={this.props.promotions.filter((promo)=>promo.featured==true)[0]}/>
       )
     }
     const MenuPage=()=>{

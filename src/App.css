@@ -1,6 +1,9 @@
 .navbar-color{
     background-color:#000000;
 }
+.navbar-custom{
+    padding:10px 0px 10px 0px;
+}
 .menu-custom{
     color:#DE1E24 ;
 }
@@ -23,8 +26,9 @@
     background-color: #000000;
     margin:0px auto;
     padding: 20px 0px 20px 0px;
-    margin-top: 20px;
-}
+    margin-top: 100px; 
+    
+   }
 address{
     font-size:80%;
     margin:0px;
@@ -67,7 +71,11 @@ address{
     margin-top: 4px;
     color: whitesmoke;
 }
-.home-custome{
-    
+.btn-custom{
+    padding: 0px 10px 0px 10px;
+}
+.qoutes-header{
+    background-color:#5eaaa8;
+    text-align:center;
 }
 

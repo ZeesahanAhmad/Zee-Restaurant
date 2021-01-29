@@ -22,7 +22,7 @@ class Header extends Component {
 
   render(){
     return(
-      <Navbar dark className="navbar-color" expand="md">
+      <Navbar dark className="navbar-color navbar-custom" expand="md">
         <div className="container">
             <NavbarToggler onClick={this.toggleNav} />
             <NavbarBrand className=" font-custom mr-4" ><b style={{color:"#DE1E24",fontSize:"30px"}}>Zee Restaurant</b></NavbarBrand>
