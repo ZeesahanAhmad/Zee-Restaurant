@@ -49,4 +49,4 @@ export const DISHES = [
         price:'1.99',
         description:'very delicious prepared by well experienced chef and one of famous item of our restaurant.'
    }
-]
+] 

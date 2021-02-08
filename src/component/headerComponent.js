@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import {Navbar,NavbarBrand,Nav,NavItem,NavbarToggler,Collapse} from "reactstrap";
+import {Navbar,NavbarBrand,Nav,NavItem,NavbarToggler,Collapse,Button,Modal,ModalBody,ModalHeader, Form, FormGroup, Label, Input} from "reactstrap";
 import {NavLink} from "react-router-dom";
 
 
@@ -7,10 +7,14 @@ import {NavLink} from "react-router-dom";
 class Header extends Component {
   constructor(props){
     super(props);
-    this.toggleNav=this.toggleNav.bind(this);
+
     this.state={
-      isNavOpen:false
+      isNavOpen:false,
+      isModalOpen:false
     }
+    this.toggleNav=this.toggleNav.bind(this);
+    this.toggleModal=this.toggleModal.bind(this);
+    this.handleLogin=this.handleLogin.bind(this);
     
   }
 
@@ -20,8 +24,22 @@ class Header extends Component {
     })
   }
 
+  toggleModal(){
+    this.setState({
+      isModalOpen:!this.state.isModalOpen
+    })
+  }
+
+  handleLogin(event){
+    this.toggleModal();
+    alert("username: " +this.username.value+ "    password : "+this.password.value);
+    event.preventDefault();
+
+  }
+
   render(){
     return(
+      <React.Fragment>
       <Navbar dark className="navbar-color navbar-custom" expand="md">
         <div className="container">
             <NavbarToggler onClick={this.toggleNav} />
@@ -44,9 +62,37 @@ class Header extends Component {
                 <NavLink className="nav-link mr-4"  to="contactus"><b className="fa fa-address-card fa-lg menu-custom">Contact Us</b></NavLink>
               </NavItem>
           </Nav>
+            <Nav navbar className="ml-auto">
+              <NavItem>
+              <Button className="fa fa-sign-in fa-lg" onClick={this.toggleModal}><b>Login</b></Button>
+              </NavItem>
+            </Nav>
+
           </Collapse>
         </div>
       </Navbar>
+
+      <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+        <ModalHeader toggle={this.toggleModal}><b>Login</b></ModalHeader>
+        <ModalBody>
+         <Form onSubmit={this.handleLogin}>
+          <FormGroup>
+            <Label><b>Username</b></Label>
+            <Input type="text" id="username" name="username" innerRef={(input)=>this.username=input}/>
+          </FormGroup>
+
+          <FormGroup>
+            <Label><b>Password</b></Label>
+            <Input type="password" id="password" name="password" innerRef={(input)=>this.password=input}/>
+          </FormGroup>
+          <Button type="submit" value="submit" className="btn btn-success btn-lg"><b>Login</b></Button>
+         </Form>
+        
+        </ModalBody>
+      </Modal>
+
+      </React.Fragment>
+
 
     )
   }
