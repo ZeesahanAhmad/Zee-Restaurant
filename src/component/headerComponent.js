@@ -47,24 +47,24 @@ class Header extends Component {
             <Collapse isOpen={this.state.isNavOpen} navbar >
             <Nav navbar>
               <NavItem >
-                <NavLink className="nav-link mr-4"  to="/home"><b className="fa fa-home fa-lg menu-custom">Home</b></NavLink>
+                <NavLink className="nav-link mr-4"  to="/home"><b className="fa fa-home fa-lg menu-custom font-custom">Home</b></NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink className="nav-link mr-4"  to="/aboutus"><b className="fa fa-info fa-lg menu-custom">About Us</b></NavLink>
+                <NavLink className="nav-link mr-4"  to="/aboutus"><b className="fa fa-info fa-lg menu-custom font-custom">About Us</b></NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink className="nav-link mr-4"  to="/menu"><b className="fa fa-list fa-lg menu-custom">Menu</b></NavLink>
+                <NavLink className="nav-link mr-4"  to="/menu"><b className="fa fa-list fa-lg menu-custom font-custom">Menu</b></NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink className="nav-link mr-4"  to="contactus"><b className="fa fa-address-card fa-lg menu-custom">Contact Us</b></NavLink>
+                <NavLink className="nav-link mr-4"  to="contactus"><b className="fa fa-address-card fa-lg menu-custom font-custom">Contact Us</b></NavLink>
               </NavItem>
           </Nav>
             <Nav navbar className="ml-auto">
               <NavItem>
-              <Button className="fa fa-sign-in fa-lg" onClick={this.toggleModal}><b>Login</b></Button>
+              <Button className="fa fa-sign-in fa-lg" onClick={this.toggleModal}><b className="font-custom">Login</b></Button>
               </NavItem>
             </Nav>
 

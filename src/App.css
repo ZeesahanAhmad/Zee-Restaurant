@@ -6,6 +6,7 @@
 }
 .menu-custom{
     color:#DE1E24 ;
+    font-family: 'Alfa Slab One',cursive;
 }
 .menu-custom:hover{
     color:white;
@@ -35,7 +36,7 @@ address{
     color:#0f0f0f;
 }
 .font-custom{
-    font-family: 'Alfa Slab One';  
+    font-family: 'Alfa Slab One',cursive;  
 }
 .address-custom{
     font-size: 15px;
@@ -80,5 +81,8 @@ address{
 }
 .jumbo-header{
     font-family: 'Alfa Slab One',cursive;
+}
+.order-btn{
+    padding:20;
 }
 

@@ -11,7 +11,7 @@ export const LEADERS = [
     {
       id: 1,
       name: 'Dhanasekaran Witherspoon',
-      image: '/assets/images/alberto.png',
+      image: '/assets/images/chef2.jpg',
       designation: 'Chief Food Officer',
       abbr: 'CFO',
         featured: false,
@@ -29,7 +29,7 @@ export const LEADERS = [
     {
       id: 3,
       name: 'Alberto Somayya',
-      image: '/assets/images/alberto.png',
+      image: '/assets/images/chef2.jpg',
       designation: 'Executive Chef',
       abbr: 'EC',
       featured: true,
