@@ -25,14 +25,14 @@ const RenderDish=({dish})=>{
   }
    
 }
+// {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(com.date)))}
 
 const RenderComment=({com})=>{
   return(
     <div className="font-custom comment-custom">
     <h5>{com.comment}</h5>
-    <b>{com.author}</b><b>{"      "}</b>
-    <b>{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'})
-    .format(new Date(Date.parse(com.date)))}</b>
+    <b>{com.author}</b><b>{",  "}</b>
+    <b>{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(com.date)))}</b>
     </div>
     
   )
@@ -55,7 +55,7 @@ const DishDetail=(props)=>{
         });
 
         const handleSubmit=(values)=>{
-          alert('Current State is: ' + JSON.stringify(values));
+          props.addComment(props.dish.id, values.rating, values.author, values.comment);
         }
       
 
@@ -90,16 +90,16 @@ const DishDetail=(props)=>{
               </Row>
 
             <Row className="form-group">
-             <Label htmlFor="name" md={2}><b>Name</b></Label>
+             <Label htmlFor="author" md={2}><b>Name</b></Label>
              <Col md={10}>
-             <Control.text model=".name" id="name" name="name"placeholder="Enter your name" width="200px" className="form-control"/>
+             <Control.text model=".author" id="author" name="author"placeholder="Enter your name" width="200px" className="form-control"/>
              </Col>
             </Row>
 
             <Row className="form-group">
              <Label htmlFor="comment" md={2}><b>Comment</b></Label>
              <Col md={10}>
-              <Control.textarea model=".comment" id="comment" name="comment" rows="6" width="200px" className="form-control"/>
+              <Control.textarea model=".comment" id="comment" name="comment" rows="6" width="200px" className="form-control"f/>
              </Col>
             </Row>
 
