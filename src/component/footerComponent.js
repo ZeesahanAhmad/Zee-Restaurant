@@ -23,7 +23,7 @@ const Footer=(props)=>{
               New Karimganj<br/>
               GAYA,BIHAR<br/>
               <i className="fa fa-phone fa-lg"></i>: +912 1534 5678<br />
-              <i className="fa fa-envelope fa-lg"></i>: <a  style={{color:"red"}} href="#">
+              <i className="fa fa-envelope fa-lg"></i>: <a  style={{color:"#275070"}} href="#">
                  zeerestaurant@food.net</a>
             </address>
         </div>

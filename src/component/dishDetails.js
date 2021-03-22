@@ -1,9 +1,27 @@
 import React,{useState} from 'react';
 import {Card,CardBody,CardTitle,CardImg, CardText,Button,Modal,ModalBody,ModalHeader, Label,Row,Col} from "reactstrap";
 import {LocalForm,Control,Errors} from'react-redux-form';
+import Loading from "./loadingComponent";
 
-const RenderDish=({dish})=>{
-  if(dish!=null){
+const RenderDish=({dish,isLoading,errMessage})=>{
+  if(isLoading){
+    return(
+      <div className= "col-12 col-md-4 m-1 mt-5 font-custom">
+      <Loading/>
+      </div>
+    )
+  }
+
+  else if(errMessage){
+    return(
+      <div className="container">
+       <P>errMessage</P>
+      </div>
+    )
+  }
+
+  else{
+    if(dish!=null){
       return(
         <div className= "col-12 col-md-4 m-1 mt-5 font-custom">
          <Card>
@@ -11,7 +29,7 @@ const RenderDish=({dish})=>{
           <CardBody className="card-body-custom">
             <CardTitle style={{fontSize:"25px",color:"red"}}><b>{dish.name}</b></CardTitle>
             <CardText>{dish.description}<br></br><b>{`Price: $${dish.price}`}</b> 
-            <button className="order-btn btn btn-success btn-md" style={{paddingLeft:"8",paddingRight:"8",marginLeft:"130px"}}><b>order now</b></button></CardText>
+            </CardText>
            </CardBody>
          </Card>
        </div>
@@ -23,7 +41,8 @@ const RenderDish=({dish})=>{
       <div></div>
      )
   }
-   
+  }
+  
 }
 // {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(com.date)))}
 
@@ -63,13 +82,15 @@ const DishDetail=(props)=>{
           
           <div className="container">
             <div className="row">
-              <RenderDish dish={props.dish}/>
+              <RenderDish dish={props.dish} isLoading={props.isLoading} errMessage={props.errMessage}/>
               <div className="col-12 col-md-6 m-1 mt-5">
                <p className="font-custom comment-header-custom" ><b>Your comments are valueble to Us</b></p>
                 {comments}
                 <Button className="add-comment mt-4 btn btn-info" onClick={()=>setOpen(!Open)}>Add Comment</Button>
               </div>
              </div>
+
+
 
            <Modal isOpen={Open} toggle={()=>setOpen(!Open)}>
             <ModalHeader  toggle={()=>setOpen(!Open)}><b>ADD COMMENT HERE!</b></ModalHeader>

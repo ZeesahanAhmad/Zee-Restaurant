@@ -9,8 +9,9 @@ import Home from "./homeComponent";
 import {Switch,Route,Redirect,withRouter} from "react-router-dom";
 import ContactUs from "./contactUsComponent";
 import AboutUs from "./aboutUsComponent";
+import Loading from "./loadingComponent";
 import {connect} from "react-redux";
-import {addComment} from "../redux/actionCreator";
+import {addComment,fetchDishes,fetchComments,fetchLeaders,fetchPromotions} from "../redux/actionCreator";
 
 
  const mapStateToProps=(state)=>{
@@ -23,27 +24,42 @@ import {addComment} from "../redux/actionCreator";
  }
 
  const mapDispachToProps=(dispatch)=>({
-   addComment:(dishId,rating,author,comment)=>{
-              dispatch(addComment(dishId,rating,author,comment));
-             }
+   addComment:(dishId,rating,author,comment)=>{dispatch(addComment(dishId,rating,author,comment))},
+   fetchDishes:()=>dispatch(fetchDishes()),
+   fetchComments:()=>dispatch(fetchComments()),
+   fetchLeaders:()=>dispatch(fetchLeaders()),
+   fetchPromotions:()=>dispatch(fetchPromotions())
+
  });
 
+ 
 
 
  class Main extends Component{
    constructor(props){
      super(props);
    }
+
+   componentDidMount(){
+     this.props.fetchDishes();
+     this.props.fetchComments();
+     this.props.fetchLeaders();
+     this.props.fetchPromotions();
+   }
    
   render(){
     const LandingPage=()=>{
       return(
-        <Home featuredDish={this.props.promotions.filter((promo)=>promo.featured==true)[0]}/>
+        <Home featuredDish={this.props.promotions.promotions.filter((promo)=>promo.featured==true)[0]}
+        isLoading={this.props.promotions.isLoading} errMessage={this.props.promotions.errMessage}/>
       )
     }
     const MenuPage=()=>{
       return(
-        <Menu dishes={this.props.dishes} comments={this.props.comments}/>
+        <Menu dishes={this.props.dishes.dishes}
+         isLoading={this.props.dishes.dishesLoading}
+         errMessage={this.props.dishes.errMessage}
+         comments={this.props.comments.comments}/>
       )
     }
     const ContactUsPage=()=>{
@@ -53,13 +69,17 @@ import {addComment} from "../redux/actionCreator";
     }
     const AboutUsPage=()=>{
       return(
-        <AboutUs leaders={this.props.leaders}/>
+        <AboutUs leaders={this.props.leaders.leaders} isLoading={this.props.leaders.isLoading} errMessage={this.props.leaders.errMessage}/>
       )
     }
     const DishDetailPage=({match})=>{
       return(
-        <DishDetail dish={this.props.dishes.filter((dish)=>dish.id==parseInt(match.params.dishId,10))[0]}
-         comments={this.props.comments.filter((comment)=>comment.dishId==parseInt(match.params.dishId,10))} 
+        <DishDetail dish={this.props.dishes.dishes.filter((dish)=>dish.id==parseInt(match.params.dishId,10))[0]}
+         isLoading={this.props.dishes.isLoading}
+         errMessage={this.props.dishes.errMessage}
+         comments={this.props.comments.comments.filter((comment)=>comment.dishId==parseInt(match.params.dishId,10))} 
+         isLoading={this.props.comments.isLoading}
+         errMessage={this.props.comments.errMessage}
          addComment={this.props.addComment} />
       )
     }

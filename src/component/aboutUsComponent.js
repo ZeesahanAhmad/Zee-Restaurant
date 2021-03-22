@@ -1,23 +1,32 @@
 import React from 'react';
 import {Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import Loading from './loadingComponent';
+
+const ReanderLeaders=({leader})=>{
+    return(
+        <Media>
+          <Media left>
+           <Media object className="leader-media-img" src={leader.image} alt={leader.name} />
+          </Media>
+          <Media body className="font-custom ml-4">
+            <Media heading style={{color:"#33d9b2"}}><h3><b>{leader.name}</b></h3></Media>
+            <h4 style={{color:"#34ace0"}}>{leader.designation}</h4>
+            <p style={{color:"whitesmoke"}}>{leader.description}</p>
+        </Media>
+         </Media>
+    )
+}
 
 const AboutUS=(props)=> {
 
     const leaders = props.leaders.map((leader) => {
-        return (
-         <Media>
-            <Media left>
-              <Media object className="leader-media-img" src={leader.image} alt={leader.name} />
-            </Media>
-             <Media body className="font-custom ml-4">
-             <Media heading style={{color:"#33d9b2"}}><h3><b>{leader.name}</b></h3></Media>
-             <h4 style={{color:"#34ace0"}}>{leader.designation}</h4>
-             <p style={{color:"whitesmoke"}}>{leader.description}</p>
-            </Media>
-        </Media>
-        );
-    });
+
+            return (
+                <ReanderLeaders leader={leader}/>
+               );
+        }
+ );
 
     return(
         <div className="container">

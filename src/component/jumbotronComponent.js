@@ -6,8 +6,8 @@ const Jumbo = (props) => {
     <React.Fragment>
       <Jumbotron fluid className="jumbo-custom">
         <Container>
-          <h1 className="display-4 font-custom jumbo-header"><b>Zee Restaurant</b></h1>
-          <p className="lead font-custom">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+          <h1 className="display-6 font-custom jumbo-header"><b>We Welcome you to our Restaurant</b></h1>
+          <p className="lead font-custom jumbo-body-color mt-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
         </Container>
       </Jumbotron>
     </React.Fragment>

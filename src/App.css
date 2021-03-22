@@ -4,8 +4,9 @@
 .navbar-custom{
     padding:10px 0px 10px 0px;
 }
+
 .menu-custom{
-    color:#DE1E24 ;
+    color:#275070 ;
     font-family: 'Alfa Slab One',cursive;
 }
 .menu-custom:hover{
@@ -40,14 +41,14 @@ address{
 }
 .address-custom{
     font-size: 15px;
-    color: #DE1E24;
+    color: whitesmoke;
 }
 .footer-header{
-    color:red;
+    color:#B7AC44;
 }
 .footer-link-custom{
     font-size: 20px;
-    color:#DE1E24;
+    color:#275070;
     text-decoration: none;
 }
 .footer-link-custom:hover{
@@ -65,7 +66,7 @@ address{
     text-align: center;
 }
 .copy-right-custom{
-   color: #DE1E24
+   color: #B7AC44
 }
 .comment-custom{
     border:1px solid black;
@@ -81,6 +82,9 @@ address{
 }
 .jumbo-header{
     font-family: 'Alfa Slab One',cursive;
+}
+.jumbo-body-color{
+    color: #90ADC6;
 }
 .order-btn{
     padding:20;
